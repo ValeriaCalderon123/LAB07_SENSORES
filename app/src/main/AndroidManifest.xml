@@ -14,6 +14,12 @@
         android:theme="@style/Theme.LAB07_SENSORES"
         tools:targetApi="31">
         <activity
+            android:name=".Sensor2"
+            android:exported="false" />
+        <activity
+            android:name=".Sensor1"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
