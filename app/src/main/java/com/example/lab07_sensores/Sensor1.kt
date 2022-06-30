@@ -44,7 +44,7 @@ class Sensor1 : AppCompatActivity(),SensorEventListener {
         //INICIALIZACION DE SENSOR
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
         // DEFINICION DE TIPO DE SENSOR
-        sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)?.also {
+        sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)?.also {
             sensorManager.registerListener(this, it, SensorManager.SENSOR_DELAY_NORMAL,SensorManager.SENSOR_DELAY_NORMAL)
         }
 
@@ -60,15 +60,7 @@ class Sensor1 : AppCompatActivity(),SensorEventListener {
             textY.text = ("Y: "+("%.2f".format(y).toDouble()).toString()+"\nY: "+y.toInt().toString())
             textZ.text = ("Z: "+("%.2f".format(z).toDouble()).toString()+"\nZ: "+z.toInt().toString())
         }
-        if(event?.sensor?.type == Sensor.TYPE_MAGNETIC_FIELD){
-            val x = event.values[0]
-            val y = event.values[1]
-            val z = event.values[2]
-            // ASIGNACION
-            textX.text = ("X: "+("%.2f".format(x).toDouble()).toString()+"\nX: "+x.toInt().toString())
-            textY.text = ("Y: "+("%.2f".format(y).toDouble()).toString()+"\nY: "+y.toInt().toString())
-            textZ.text = ("Z: "+("%.2f".format(z).toDouble()).toString()+"\nZ: "+z.toInt().toString())
-        }
+
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
